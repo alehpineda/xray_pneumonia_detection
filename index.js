@@ -68,12 +68,11 @@ async function app() {
   const results = await net.predict(tensor).data();
   //let prediction = await model.predict(tensor).data();
   const i = results.indexOf(Math.max.apply(null, results));
-  console.log(i, IMAGENET_CLASSES[i], IMAGENET_CLASSES[0]);
-  console.log('Prediction: ',IMAGENET_CLASSES[i], '\n Probability: ', results[i]);
+  console.log('Prediction: ',IMAGENET_CLASSES[i], '\n Probability: ', results[i].toFixed(2));
   // Get and display the result
   $('.loader').hide();
   $('#result').fadeIn(600);
-  $('#result').text(' Result: ' + IMAGENET_CLASSES[i] + '\n Probability: ' + results[i]);
+  $('#result').text(' Result: ' + IMAGENET_CLASSES[i] + '\n Probability: ' + results[i].toFixed(2));
   console.log('Success!');
 }
 
