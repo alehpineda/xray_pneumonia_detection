@@ -67,8 +67,8 @@ async function app() {
   let tensor = preprocessImage(imgEl);  
   const results = await net.predict(tensor).data();
   //let prediction = await model.predict(tensor).data();
-  let i = results.indexOf(Math.max(results));
-  console.log(IMAGENET_CLASSES[i]);
+  const i = results.indexOf(Math.max(results));
+  console.log(i, IMAGENET_CLASSES[i], IMAGENET_CLASSES[0]);
   console.log('Prediction: ',IMAGENET_CLASSES[i], '\n Probability: ', results[i]);
   // Get and display the result
   $('.loader').hide();
