@@ -71,7 +71,7 @@ async function app() {
 }
 
 function preprocessImage(image) {
-    let tensor=tf.fromPixels(image)
+    let tensor=tf.browser.fromPixels(image)
     .resizeNearestNeighbor([150,150])
     .toFloat();
 
