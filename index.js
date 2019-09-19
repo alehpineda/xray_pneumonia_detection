@@ -57,7 +57,9 @@ async function loadModel() {
 async function app() {
   // Make a prediction through the model on our image.
   const imgEl = document.getElementById('imagePreview1');
-  const results = await net.classify(imgEl);
+  let tensor = preprocessImage(imgEl);  
+  const results = await net.predict(tensor).data();
+  //let prediction = await model.predict(tensor).data();
   //console.log(results[0].className);
   console.log('Prediction: ',results[0].className, '\n Probability: ',
     results[0].probability);
@@ -66,6 +68,17 @@ async function app() {
   $('#result').fadeIn(600);
   $('#result').text(' Result: ' + results[0].className + '\n Probability: ' + results[0].probability);
   console.log('Success!');
+}
+
+function preprocessImage(image) {
+    let tensor=tf.fromPixels(image)
+    .resizeNearestNeighbor([150,150])
+    .toFloat();
+
+    let offset=tf.scalar(127.5);
+    return tensor.sub(offset)
+                .div(offset)
+                .expandDims();
 }
 
 loadModel();
