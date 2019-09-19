@@ -1,3 +1,10 @@
+
+const IMAGENET_CLASSES = {
+  0: 'NORMAL',
+  1: 'PNEUMONIA BACTERIA',
+  2: 'PNEUMONIA VIRUS'
+};
+
 $(document).ready(function () {
   // Init
   $('.image-section').hide();
@@ -60,7 +67,7 @@ async function app() {
   let tensor = preprocessImage(imgEl);  
   const results = await net.predict(tensor).data();
   //let prediction = await model.predict(tensor).data();
-  //console.log(results[0].className);
+  console.log(results);
   console.log('Prediction: ',results[0].className, '\n Probability: ',
     results[0].probability);
   // Get and display the result
