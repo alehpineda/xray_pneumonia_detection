@@ -43,10 +43,10 @@ async function loadModel() {
   // Load the model.
   $('#message').fadeIn(600);
   $('#message').text('Wait till the model loads');
-  console.log('Loading mobilenet..');
+  console.log('Loading InceptionV3...');
   $('#result').fadeIn(600);
-  $('#result').text('Loading mobilenet..');
-  net = await mobilenet.load();
+  $('#result').text('Loading InceptionV3..');
+  net = await tf.loadLayersModel('model/model.json');
   console.log('Sucessfully loaded model');
   $('#result').fadeIn(600);
   $('#result').text('Sucessfully loaded model');

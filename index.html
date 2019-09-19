@@ -1,9 +1,6 @@
 <html>
   <head>
-    <title>TensorFlow.js</title>
-    <!-- Load the latest version of TensorFlow.js -->
-    <script src="https://unpkg.com/@tensorflow/tfjs"></script>
-    <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script> 
+    <title>TensorFlow.js - Classifier</title>
     <!-- Load the latest version of Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -14,12 +11,12 @@
   <body>
       <nav class="navbar navbar-dark bg-dark">
           <div class="container">
-              <a class="navbar-brand" href="#">TensorFlow.js</a>
+              <a class="navbar-brand" href="#">TensorFlow.js Classifier</a>
           </div>
       </nav>
     <div class="container">
         <div id="content" style="margin-top:2em">
-            <h2>TensorFlow.js - Image Classifier</h2>
+            <h2>TensorFlow.js - Pneumonia Xray Classifier</h2>
             <div>
                 <h3 id="message">
                     <span> </span>
@@ -51,6 +48,8 @@
 
   <footer>
     <!-- Load index.js after the content of the page -->
-    <script src="mobilenet.js"></script>
+    <!-- Load the latest version of TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+    <script src="index.js"></script>
   </footer>
 </html>
