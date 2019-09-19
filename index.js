@@ -67,13 +67,13 @@ async function app() {
   let tensor = preprocessImage(imgEl);  
   const results = await net.predict(tensor).data();
   //let prediction = await model.predict(tensor).data();
-  console.log(results);
-  console.log('Prediction: ',results[0].className, '\n Probability: ',
-    results[0].probability);
+  let i = results.indexOf(Math.max(results));
+  console.log(IMAGENET_CLASSES[i]);
+  console.log('Prediction: ',IMAGENET_CLASSES[i], '\n Probability: ', results[i]);
   // Get and display the result
   $('.loader').hide();
   $('#result').fadeIn(600);
-  $('#result').text(' Result: ' + results[0].className + '\n Probability: ' + results[0].probability);
+  $('#result').text(' Result: ' + IMAGENET_CLASSES[i] + '\n Probability: ' + results[i]);
   console.log('Success!');
 }
 
@@ -87,5 +87,7 @@ function preprocessImage(image) {
                 .div(offset)
                 .expandDims();
 }
+
+
 
 loadModel();
