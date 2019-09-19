@@ -87,6 +87,4 @@ function preprocessImage(image) {
                 .expandDims();
 }
 
-
-
 loadModel();
